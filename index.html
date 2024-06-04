@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Data</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            margin-top: 10vh;
+            margin-bottom: auto;
+            
+        }
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            /*width: 100%;*/
+            border-collapse: collapse;
+            vertical-align: middle;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.384);
+        }
+        #search{
+           width: 25vw;
+           text-align: left;
+           padding-left: 10px;
+           padding-top: 5px;
+           padding-bottom: 5px;
+           background-color: black;
+           color: beige;
+           margin-left: 20vw;
+        }
+        button{
+            padding-top: 5px;
+           padding-bottom: 5px;
+           background-color: black;
+           color: beige;
+           border : 1px solid rgba(128, 128, 128, 0.384);
+        }
+        .first{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="search" placeholder="Search by Name or Symbol" >
+    <button onclick="searchData()" >Search</button>
+    <button onclick="sortData('market_cap')" >Sort by Mkt Cap</button>
+    <button onclick="sortData('percentage_change')" >Sort by Percentage</button>
+    <table id="crypto-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Current Price</th>
+                <th>Total Volume</th>
+                <th>Market Cap</th>
+                <th>Percentage Change</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
