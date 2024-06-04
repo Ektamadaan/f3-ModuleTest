@@ -26,38 +26,26 @@ async function fetchDataAsync() {
 }
 
 // Render the data in a table
-/*function renderTable(data) {
-    const tableBody = document.getElementById('crypto-table').getElementsByTagName('tbody')[0];
-    tableBody.innerHTML = ''; // Clear the table
-
-    data.forEach(coin => {
-        const row = tableBody.insertRow();
-        var element1 = document.createElement("img");
-        element1.src= `${coin.image , width = "20"}`;
-        row.insertCell(0).appendChild(element1);
-        row.insertCell(0).textContent = coin.name;
-        row.insertCell(1).textContent = coin.symbol.toUpperCase();
-        row.insertCell(2).textContent = `$${coin.current_price}`;
-        row.insertCell(3).textContent = coin.total_volume;
-        row.insertCell(4).textContent = coin.market_cap;
-        row.insertCell(5).textContent = `${coin.price_change_percentage_24h}%`;
-    });
-}*/
-
 function renderTable(data) {
     const tableBody = document.getElementById('crypto-table');
     tableBody.innerHTML = '';
 
     data.forEach(item => {
         const row = document.createElement('tr');
+        let text = "green";
+        if(item.price_change_percentage_24h<0)
+            text = "red";
+        
+        
         row.innerHTML = `
             <td class = "first"><img src="${item.image}" alt="${item.name}" width="20"></td>
             <td>${item.name}</td>
             <td>${item.symbol.toUpperCase()}</td>
             <td>$${item.current_price}</td>
-            <td>${item.total_volume}</td>
-            <td>${item.price_change_percentage_24h}%</td>
-            <td>${item.market_cap}</td>
+            <td>$${item.total_volume}</td>
+            <td class=`+text+`>${item.price_change_percentage_24h}%</td>
+            
+            <td>Mkt cap: $${item.market_cap}</td>
         `;
         tableBody.appendChild(row);
     });
